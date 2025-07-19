@@ -1,0 +1,70 @@
+{
+  "project_info": {
+    "project_number": "327223469216",
+    "project_id": "biijlee-afbbc",
+    "storage_bucket": "biijlee-afbbc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327223469216:android:625dd85c657091e352d5c5",
+        "android_client_info": {
+          "package_name": "com.bijlee.core"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327223469216-7onk9h5tfrhiuos2r6rtrc52gu004nn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bijlee.core",
+            "certificate_hash": "b1c89b2193d4f159929c9d828986240ea32b3635"
+          }
+        },
+        {
+          "client_id": "327223469216-9rqv5524084ib0e5kbud3chjuatsdqo2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bijlee.core",
+            "certificate_hash": "775212af2af30cb63b5c2e0d50e978c163ec616c"
+          }
+        },
+        {
+          "client_id": "327223469216-q05emkhj9f19vebgn22pa6bmtnj4n2r4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bijlee.core",
+            "certificate_hash": "4fade96e1d785805c20029aff9ef30027775ddc4"
+          }
+        },
+        {
+          "client_id": "327223469216-njk1bl4ppctij0ob6ra5aasd4tqqufq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJEE3ObiDuYxQhUohlMjJKb6fFaMGWr2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327223469216-njk1bl4ppctij0ob6ra5aasd4tqqufq8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "327223469216-ebaonob5rs9vf0afbvmgbnufi6b2034v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Bijlee"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

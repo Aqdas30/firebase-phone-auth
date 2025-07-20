@@ -24,12 +24,32 @@ const PhoneAuthScreen: React.FC = () => {
 
     setLoading(true);
     try {
+      console.log('Attempting to send SMS to:', phoneNumber);
+      
+      // Updated API - direct method call
       const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+      
+      console.log('SMS sent successfully, confirmation:', confirmation.verificationId);
       setConfirmation(confirmation);
       Alert.alert('Success', 'Verification code sent to your phone');
     } catch (error: any) {
-      console.error('Phone auth error:', error);
-      Alert.alert('Error', error.message || 'Failed to send verification code');
+      console.error('Phone auth error details:', {
+        code: error.code,
+        message: error.message,
+        nativeErrorMessage: error.nativeErrorMessage,
+      });
+      
+      let errorMessage = 'Failed to send verification code';
+      
+      if (error.code === 'auth/invalid-phone-number') {
+        errorMessage = 'Please enter a valid phone number with country code (e.g., +1234567890)';
+      } else if (error.code === 'auth/too-many-requests') {
+        errorMessage = 'Too many requests. Please try again later.';
+      } else if (error.code === 'auth/unknown') {
+        errorMessage = 'Configuration error. Please check Firebase setup.';
+      }
+      
+      Alert.alert('Error', errorMessage);
     } finally {
       setLoading(false);
     }
@@ -43,11 +63,21 @@ const PhoneAuthScreen: React.FC = () => {
 
     setLoading(true);
     try {
+      console.log('Confirming code:', code);
       await confirmation?.confirm(code);
+      console.log('Phone authentication successful');
       // User will be automatically signed in via onAuthStateChanged
     } catch (error: any) {
       console.error('Code confirmation error:', error);
-      Alert.alert('Error', 'Invalid verification code');
+      
+      let errorMessage = 'Invalid verification code';
+      if (error.code === 'auth/invalid-verification-code') {
+        errorMessage = 'The verification code is invalid. Please try again.';
+      } else if (error.code === 'auth/code-expired') {
+        errorMessage = 'The verification code has expired. Please request a new one.';
+      }
+      
+      Alert.alert('Error', errorMessage);
     } finally {
       setLoading(false);
     }
@@ -85,6 +115,10 @@ const PhoneAuthScreen: React.FC = () => {
             <Text style={styles.buttonText}>Send Verification Code</Text>
           )}
         </TouchableOpacity>
+        
+        <Text style={styles.debugText}>
+          Debug: Make sure to use country code (e.g., +1 for US)
+        </Text>
       </View>
     );
   }
@@ -179,6 +213,12 @@ const styles = StyleSheet.create({
   linkText: {
     color: '#007AFF',
     fontSize: 16,
+  },
+  debugText: {
+    fontSize: 12,
+    color: '#888',
+    textAlign: 'center',
+    marginTop: 15,
   },
 });
 

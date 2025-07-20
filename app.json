@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.Bijlee.Core",
+      "bundleIdentifier": "com.aqdasaqdaszulfiqar.phoneOTP",
       "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.bijlee.core",
+      "package": "com.aqdasaqdaszulfiqar.phoneOTP",
       "googleServicesFile": "./google-services.json"
     },
     "web": {
